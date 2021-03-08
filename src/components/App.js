@@ -3,7 +3,7 @@ import SideBar from './SideBar';
 
 const App = () => {
   return (
-    <div>
+    <div className='ui container' style={{ marginTop: '10px' }}>
       <SideBar />
     </div>
   );
