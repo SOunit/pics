@@ -8,17 +8,20 @@ class SideBar extends React.Component {
   //   console.log(event.target.value);
   // }
 
-  onFormSubmit = (event) => {
+  onFormSubmit(event) {
     event.preventDefault();
     console.log(this.state.term);
-  };
+  }
 
   render() {
     return (
       <div className='ui segment'>
-        <form className='ui form' onSubmit={this.onFormSubmit}>
+        <form
+          className='ui form'
+          onSubmit={(event) => this.onFormSubmit(event)}
+        >
           <div className='field'>
-            <label>Image Search</label>
+            <label>Image Search Arrow Function Call</label>
             {/* this is controlled element */}
             <input
               type='text'

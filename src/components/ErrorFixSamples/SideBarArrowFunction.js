@@ -18,7 +18,7 @@ class SideBar extends React.Component {
       <div className='ui segment'>
         <form className='ui form' onSubmit={this.onFormSubmit}>
           <div className='field'>
-            <label>Image Search</label>
+            <label>Image Search Arrow Function</label>
             {/* this is controlled element */}
             <input
               type='text'
