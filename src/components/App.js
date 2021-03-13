@@ -6,18 +6,25 @@ import SideBarArrowFunction from './ErrorFixSamples/SideBarArrowFunction';
 import SideBarArrowFunctionCall from './ErrorFixSamples/SideBarArrowFunctionCall';
 import ThisRefError from './ErrorFixSamples/ThisRefError';
 
-const App = () => {
-  return (
-    <div className='ui container' style={{ marginTop: '10px' }}>
-      <SideBar />
-      <hr />
-      <SideBarError />
-      <ThisRefError />
-      <SideBarAddConstructor />
-      <SideBarArrowFunction />
-      <SideBarArrowFunctionCall />
-    </div>
-  );
-};
+class App extends React.Component {
+  onSearchSubmit(term) {
+    console.log(term);
+  }
+
+  render() {
+    return (
+      <div className='ui container' style={{ marginTop: '10px' }}>
+        <SideBar onSubmit={this.onSearchSubmit} />
+        <hr />
+        <h2>This Is Samples</h2>
+        <SideBarError />
+        <ThisRefError />
+        <SideBarAddConstructor />
+        <SideBarArrowFunction />
+        <SideBarArrowFunctionCall />
+      </div>
+    );
+  }
+}
 
 export default App;
