@@ -9,7 +9,9 @@ import ThisRefError from './ErrorFixSamples/ThisRefError';
 import axios from 'axios';
 
 class App extends React.Component {
-  async onSearchSubmit(term) {
+  state = { images: [] };
+
+  onSearchSubmit = async (term) => {
     console.log(term);
     const response = await axios.get('https://api.unsplash.com/search/photos', {
       params: {
@@ -20,12 +22,14 @@ class App extends React.Component {
       },
     });
     console.log(response.data.results);
-  }
+    this.setState({ images: response.data.results });
+  };
 
   render() {
     return (
       <div className='ui container' style={{ marginTop: '10px' }}>
         <SideBar onSubmit={this.onSearchSubmit} />
+        <p>{this.state.images.length} images found.</p>
         <hr />
         <h2>This Is Samples</h2>
         <SideBarError />
