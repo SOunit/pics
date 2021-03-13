@@ -9,17 +9,21 @@ import ThisRefError from './ErrorFixSamples/ThisRefError';
 import axios from 'axios';
 
 class App extends React.Component {
-  async onSearchSubmit(term) {
+  onSearchSubmit(term) {
     console.log(term);
-    const response = await axios.get('https://api.unsplash.com/search/photos', {
-      params: {
-        query: term,
-      },
-      headers: {
-        Authorization: 'Client-ID bZZrw4DGzgGbw02TuaFxikFagSlUAJoHlpn1-ai2vwo',
-      },
-    });
-    console.log(response.data.results);
+    axios
+      .get('https://api.unsplash.com/search/photos', {
+        params: {
+          query: term,
+        },
+        headers: {
+          Authorization:
+            'Client-ID bZZrw4DGzgGbw02TuaFxikFagSlUAJoHlpn1-ai2vwo',
+        },
+      })
+      .then((response) => {
+        console.log(response.data.results);
+      });
   }
 
   render() {
