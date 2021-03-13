@@ -1,7 +1,7 @@
 import React from 'react';
-import SideBar from './SideBar';
-
 import unsplash from '../api/unsplash';
+import SideBar from './SideBar';
+import ImageList from './ImageList';
 
 class App extends React.Component {
   state = { images: [] };
@@ -19,7 +19,7 @@ class App extends React.Component {
     return (
       <div className='ui container' style={{ marginTop: '10px' }}>
         <SideBar onSubmit={this.onSearchSubmit} />
-        <p>{this.state.images.length} images found.</p>
+        <ImageList images={this.state.images} />
       </div>
     );
   }
